@@ -4999,6 +4999,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4edd2a96f65fe4d6a8d587a801372f33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panel: {fileID: 1908977564}
+  timeImage: {fileID: 164869553}
+  timeText: {fileID: 0}
+  duration: 0
+  currentTime: 0
 --- !u!1001 &165005663
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16398,6 +16403,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4edd2a96f65fe4d6a8d587a801372f33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panel: {fileID: 0}
+  timeImage: {fileID: 0}
+  timeText: {fileID: 0}
+  duration: 0
+  currentTime: 0
 --- !u!1001 &644836065
 PrefabInstance:
   m_ObjectHideFlags: 0
