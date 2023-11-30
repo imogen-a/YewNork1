@@ -26,7 +26,7 @@ public class pauseMenu : MonoBehaviour
     {
         PauseMenu.SetActive(true);
         PauseButton.SetActive(false);
-        timer.SetActive(false);
+        //timer.SetActive(false);
         Time.timeScale = 0f;
     }
 
@@ -34,7 +34,7 @@ public class pauseMenu : MonoBehaviour
         {
             PauseMenu.SetActive(false);
             PauseButton.SetActive(true);
-            timer.SetActive(true);
+            //timer.SetActive(true);
             Time.timeScale = 1f;
         }
 
