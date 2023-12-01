@@ -16368,8 +16368,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb8b74a067bba6c4597ae258bdab598e, type: 3}
-<<<<<<< HEAD
-=======
 --- !u!1 &638201267
 GameObject:
   m_ObjectHideFlags: 0
@@ -16474,7 +16472,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
->>>>>>> eef5f749d49d1f897c1f7f7585fd6b089bcb045e
 --- !u!1001 &644836065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29739,8 +29736,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb8b74a067bba6c4597ae258bdab598e, type: 3}
-<<<<<<< HEAD
-=======
 --- !u!1 &1149534313
 GameObject:
   m_ObjectHideFlags: 0
@@ -29817,7 +29812,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1149534313}
   m_CullTransparentMesh: 1
->>>>>>> eef5f749d49d1f897c1f7f7585fd6b089bcb045e
 --- !u!1001 &1150073206
 PrefabInstance:
   m_ObjectHideFlags: 0
