@@ -9,7 +9,7 @@ using Unity.VisualScripting;
 public class LoadingScene : MonoBehaviour
 {
     public GameObject LoadingScreen;
-    public Slider LoadingBarFill;
+    public Scrollbar LoadingBarFill;
 
     public void LoadScene(int sceneId)
     {
@@ -27,7 +27,7 @@ public class LoadingScene : MonoBehaviour
         while (!operation.isDone)
         {
             float progressValue = Mathf.Clamp01(operation.progress / 0.9f);
-            LoadingBarFill.value = progressValue;
+            LoadingBarFill.size = progressValue;
 
 
            yield return null; 
