@@ -66,13 +66,13 @@ public class MyCharacter : MonoBehaviour
 	 transform.rotation = Quaternion.LookRotation(ProjectedMoveDirection, Vector3.up);
 
 	 //set a variable in the animation controller
-	 GetComponent<Animator>().SetFloat("WalkSpeed", 2.0f);
+	 GetComponent<Animator>().SetFloat("WalkSpeed", 2.0f, 20.0f, 1.0f);
  }
  else
  {
 
 	 //set a variable in the animation controller
-	 GetComponent<Animator>().SetFloat("WalkSpeed", 0.0f);
+	 GetComponent<Animator>().SetFloat("WalkSpeed", 0.0f, 20.0f, 1.0f);
 
  }
  //move the character down a bit (sort of simple gravity)
