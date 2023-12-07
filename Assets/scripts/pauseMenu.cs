@@ -9,7 +9,6 @@ public class pauseMenu : MonoBehaviour
     public GameObject PauseButton;
     public GameObject timer;
     public GameObject character;
-    public static bool isPaused;
     
 
     // Start is called before the first frame update
