@@ -5,9 +5,10 @@ using UnityEngine.AI;
 
 public class RatMovement : MonoBehaviour
 {
+
     private NavMeshAgent _agent;
     public GameObject Player;
-    private float EnemyDistanceRun = 3.0f;
+    private float RunDistanceRange = 3.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +22,7 @@ public class RatMovement : MonoBehaviour
         float distance = Vector3.Distance(transform.position, Player.transform.position);
 
         // Run away from player
-        if (distance < EnemyDistanceRun)
+        if (distance < RunDistanceRange)
         {
             // Vector player to me
             Vector3 dirToPlayer = transform.position - Player.transform.position;
