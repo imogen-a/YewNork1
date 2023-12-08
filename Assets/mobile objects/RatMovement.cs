@@ -24,50 +24,40 @@ public class RatMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameObject == null)
-        {
+        float distance = Vector3.Distance(transform.position, Player.transform.position);
 
+        // Run away from player
+        if (distance < RunDistanceRange)
+        {
+            // Vector player to me
+            Vector3 dirToPlayer = transform.position - Player.transform.position;
+            Vector3 newPos = transform.position + dirToPlayer;
+            _agent.SetDestination(newPos);
         }
 
         else
         {
-            float distance = Vector3.Distance(transform.position, Player.transform.position);
-
-            // Run away from player
-            if (distance < RunDistanceRange)
+            if (_agent.remainingDistance <= _agent.stoppingDistance)
             {
-                // Vector player to me
-                Vector3 dirToPlayer = transform.position - Player.transform.position;
-                Vector3 newPos = transform.position + dirToPlayer;
-                _agent.SetDestination(newPos);
-            }
-            else
-            {
-                if (_agent.remainingDistance <= _agent.stoppingDistance) //done with path
+                Vector3 point;
+                if (RandomPoint(transform.position, range, out point))
                 {
-                    Vector3 point;
-                    if (RandomPoint(transform.position, range, out point)) //pass in our centre point and radius of area
-                    {
-                        _agent.SetDestination(point);
-                    }
+                    _agent.SetDestination(point);
                 }
-
             }
-            bool RandomPoint(Vector3 center, float range, out Vector3 result)
+        }
+
+        bool RandomPoint(Vector3 center, float range, out Vector3 result)
+        {
+            Vector3 randomPoint = center + new Vector3(UnityEngine.Random.Range(-3.0f, 3.0f), 0, UnityEngine.Random.Range(-3.0f, 3.0f));
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(randomPoint, out hit, 3.0f, NavMesh.AllAreas))
             {
-
-                Vector3 randomPoint = center + new Vector3(UnityEngine.Random.Range(-3.0f, 3.0f), 0, UnityEngine.Random.Range(-3.0f, 3.0f)); //random point in a sphere 
-                NavMeshHit hit;
-                if (NavMesh.SamplePosition(randomPoint, out hit, 3.0f, NavMesh.AllAreas)) //documentation: https://docs.unity3d.com/ScriptReference/AI.NavMesh.SamplePosition.html
-                {
-                    //the 1.0f is the max distance from the random point to a point on the navmesh, might want to increase if range is big
-                    result = hit.position;
-                    return true;
-                }
-
-                result = Vector3.zero;
-                return false;
+                result = hit.position;
+                return true;
             }
+            result = Vector3.zero;
+            return false;
         }
     }
 }

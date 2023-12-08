@@ -66,13 +66,13 @@ public class MyCharacter : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(ProjectedMoveDirection, Vector3.up);
 
             //set a variable in the animation controller
-            GetComponent<Animator>().SetFloat("WalkSpeed", 2.0f, 20.0f, 1.0f);
+            GetComponent<Animator>().SetFloat("WalkSpeed", 2.0f, 10.0f, 1.0f);
         }
         else
         {
 
             //set a variable in the animation controller
-            GetComponent<Animator>().SetFloat("WalkSpeed", 0.0f, 20.0f, 1.0f);
+            GetComponent<Animator>().SetFloat("WalkSpeed", 0.0f, 10.0f, 1.0f);
 
         }
         //move the character down a bit (sort of simple gravity)
@@ -94,8 +94,12 @@ public class MyCharacter : MonoBehaviour
                 {
                     if (coliders[i].gameObject.layer == 3)
                     {
-                        Destroy(coliders[i].gameObject);
+                        if ((GameObject.Find("PlayerSprayBottle")).activeInHierarchy)
+                        {
+                            Destroy(coliders[i].gameObject);
+                        }
                     }
+                }
 
                     if (coliders[i].gameObject.layer == 6)
                     {
@@ -128,4 +132,3 @@ public class MyCharacter : MonoBehaviour
             }
         }
     }
-}
