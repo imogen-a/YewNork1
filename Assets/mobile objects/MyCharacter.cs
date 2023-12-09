@@ -97,6 +97,7 @@ public class MyCharacter : MonoBehaviour
                         if ((GameObject.Find("PlayerSprayBottle")).activeInHierarchy)
                         {
                             Destroy(coliders[i].gameObject);
+                            ScoreManager.scoreCount += 1; 
                         }
                     }
                 }

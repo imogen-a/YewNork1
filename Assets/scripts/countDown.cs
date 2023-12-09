@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class countDown : MonoBehaviour
 {
-    [SerializeField] GameObject panel;
+    [SerializeField] GameObject panel_win;
+    [SerializeField] GameObject panel_lose;
     [SerializeField] Image timeImage;
     [SerializeField] Text timeText;
     [SerializeField] float duration, currentTime;
@@ -13,7 +14,8 @@ public class countDown : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        panel.SetActive(false);
+        panel_win.SetActive(false);
+        panel_lose.SetActive(false);
         currentTime = duration;
         timeText.text = currentTime.ToString();
         //changes the countdown text to the current time, converting the numbers to a string
@@ -38,7 +40,16 @@ public class countDown : MonoBehaviour
     void OpenPanel()
     {
         timeText.text = "";
-        panel.SetActive(true);
+        if (ScoreManager.scoreCount == 5f)
+        {
+            panel_win.SetActive(true);
+        }
+
+        else
+        {
+            panel_lose.SetActive(true);
+        }
+        //panel.SetActive(true);
     }
 }
 
