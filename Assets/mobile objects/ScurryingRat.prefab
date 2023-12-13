@@ -1249,7 +1249,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed3bbd0f5d7f784d9d3b0af9acb6cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 919132149155446097, guid: 81e03fa3124012442bff1e58ad3f90bb, type: 3}
   movementRange: 3
 --- !u!195 &7756200821967887218
 NavMeshAgent:

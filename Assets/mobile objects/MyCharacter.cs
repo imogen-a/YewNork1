@@ -8,6 +8,7 @@ public class MyCharacter : MonoBehaviour
     private UnityEngine.AI.NavMeshPath _path;
     List<Vector3> _simplePath = new List<Vector3>();
     public CapsuleCollider _Collider;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +31,7 @@ public class MyCharacter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //when updating, work out the direction we need to move in
 
         Vector3 MoveDirection = Vector3.zero;
@@ -102,8 +104,8 @@ public class MyCharacter : MonoBehaviour
                         }
                     }
                 }
-
-                    if (coliders[i].gameObject.layer == 6)
+                
+                if (coliders[i].gameObject.layer == 6)
                     {
                         coliders[i].gameObject.SetActive(false);
                     }

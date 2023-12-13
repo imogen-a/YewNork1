@@ -10,7 +10,7 @@ using UnityEngine.AI;
 public class RatMovement : MonoBehaviour
 {
     private NavMeshAgent _agent;
-    public GameObject Player;
+    private GameObject Player;
     private float runDistanceRange = 3.0f;
 
     public float movementRange;
@@ -19,6 +19,7 @@ public class RatMovement : MonoBehaviour
     void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
+        Player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
