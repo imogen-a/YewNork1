@@ -66,13 +66,13 @@ public class MyCharacter : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(ProjectedMoveDirection, Vector3.up);
 
             //set a variable in the animation controller
-            GetComponent<Animator>().SetFloat("WalkSpeed", 2.0f, 10.0f, 1.0f);
+            GetComponent<Animator>().SetFloat("WalkSpeed", 2.0f, 5.0f, 1.0f);
         }
         else
         {
 
             //set a variable in the animation controller
-            GetComponent<Animator>().SetFloat("WalkSpeed", 0.0f, 10.0f, 1.0f);
+            GetComponent<Animator>().SetFloat("WalkSpeed", 0.0f, 5.0f, 1.0f);
 
         }
         //move the character down a bit (sort of simple gravity)
@@ -96,8 +96,9 @@ public class MyCharacter : MonoBehaviour
                     {
                         if ((GameObject.Find("PlayerSprayBottle")).activeInHierarchy)
                         {
+                            GetComponent<Animator>().CrossFadeInFixedTime("Spray", 0.25f);
                             Destroy(coliders[i].gameObject);
-                            ScoreManager.scoreCount += 1; 
+                            ScoreManager.scoreCount += 1;
                         }
                     }
                 }
@@ -107,29 +108,29 @@ public class MyCharacter : MonoBehaviour
                         coliders[i].gameObject.SetActive(false);
                     }
 
+                else
+                {
+                    //make the hit direction relative to the character
+                    hitDirection *= -1.0f;
+                    //we only want to depenatrate in the vertically direction if its a floor
+                    float MinFloorDot = 0.7f;
+                    if (Vector3.Dot(hitDirection, Vector3.up) > MinFloorDot)
+                    {
+                        Vector3 depenatrationDir = Vector3.up;
+                        //increase the penatration depth accordingly
+                        float denominator = Mathf.Abs(Vector3.Dot(depenatrationDir, hitDirection));
+                        if (denominator > 0.0f)
+                        {
+                            transform.position += depenatrationDir * (hitDistance / denominator);
+                        }
+                    }
                     else
                     {
-                        //make the hit direction relative to the character
-                        hitDirection *= -1.0f;
-                        //we only want to depenatrate in the vertically direction if its a floor
-                        float MinFloorDot = 0.7f;
-                        if (Vector3.Dot(hitDirection, Vector3.up) > MinFloorDot)
-                        {
-                            Vector3 depenatrationDir = Vector3.up;
-                            //increase the penatration depth accordingly
-                            float denominator = Mathf.Abs(Vector3.Dot(depenatrationDir, hitDirection));
-                            if (denominator > 0.0f)
-                            {
-                                transform.position += depenatrationDir * (hitDistance / denominator);
-                            }
-                        }
-                        else
-                        {
-                            //its not the floor, depenatrate in the natural direction
-                            transform.position += hitDirection * hitDistance;
-                        }
+                        //its not the floor, depenatrate in the natural direction
+                        transform.position += hitDirection * hitDistance;
                     }
                 }
             }
         }
     }
+}
