@@ -24,7 +24,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -33,9 +33,9 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|Armature|Armature|Armature|Armature|ArmatureAction
-      takeName: Armature|Armature|Armature|Armature|Armature|ArmatureAction
-      internalID: 1272477167644287873
+      name: Armature|Armature|Armature|Armature|Armature|Armature|Armature|ArmatureA
+      takeName: Armature|Armature|Armature|Armature|Armature|Armature|Armature|ArmatureA
+      internalID: -6066934990384904412
       firstFrame: 0
       lastFrame: 250
       wrapMode: 0
@@ -117,10 +117,10 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.1
+    globalScale: 0.001
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1

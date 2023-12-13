@@ -11,9 +11,9 @@ public class RatMovement : MonoBehaviour
 {
     private NavMeshAgent _agent;
     public GameObject Player;
-    private float RunDistanceRange = 3.0f;
+    private float runDistanceRange = 3.0f;
 
-    public float range;
+    public float movementRange;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +27,7 @@ public class RatMovement : MonoBehaviour
         float distance = Vector3.Distance(transform.position, Player.transform.position);
 
         // Run away from player
-        if (distance < RunDistanceRange)
+        if (distance < runDistanceRange)
         {
             // Vector player to me
             Vector3 dirToPlayer = transform.position - Player.transform.position;
@@ -40,7 +40,7 @@ public class RatMovement : MonoBehaviour
             if (_agent.remainingDistance <= _agent.stoppingDistance)
             {
                 Vector3 point;
-                if (RandomPoint(transform.position, range, out point))
+                if (RandomPoint(transform.position, movementRange, out point))
                 {
                     _agent.SetDestination(point);
                 }
