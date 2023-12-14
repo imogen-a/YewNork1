@@ -40,14 +40,16 @@ public class countDown : MonoBehaviour
     void OpenPanel()
     {
         timeText.text = "";
-        if (ScoreManager.scoreCount == 5f)
+        if (ScoreManager.scoreCount >= 10f)
         {
             panel_win.SetActive(true);
+            Time.timeScale = 0f;
         }
 
         else
         {
             panel_lose.SetActive(true);
+            Time.timeScale = 0f;
         }
         //panel.SetActive(true);
     }
