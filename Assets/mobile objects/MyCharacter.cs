@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
+using UnityEngine.AI;
+
 public class MyCharacter : MonoBehaviour
 {
     //a variable to hold the current destination of the character
@@ -8,6 +12,9 @@ public class MyCharacter : MonoBehaviour
     private UnityEngine.AI.NavMeshPath _path;
     List<Vector3> _simplePath = new List<Vector3>();
     public CapsuleCollider _Collider;
+
+    public static float destroyTime = 0.25f;
+    public static bool coroutineStarted = false;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +35,7 @@ public class MyCharacter : MonoBehaviour
             _simplePath.Add(_path.corners[i]);
         }
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -98,13 +106,24 @@ public class MyCharacter : MonoBehaviour
                     {
                         if ((GameObject.Find("PlayerSprayBottle")).activeInHierarchy)
                         {
-                            GetComponent<Animator>().CrossFadeInFixedTime("Spray", 0.25f);
-                            Destroy(coliders[i].gameObject);
-                            ScoreManager.scoreCount += 1;
+                            if (coroutineStarted == false)
+                            {
+                                GetComponent<Animator>().CrossFadeInFixedTime("Spray", 0.25f);
+                                Destroy(coliders[i].gameObject, destroyTime + 1.42f);
+                                StartCoroutine(IncreaseScore(destroyTime));
+                                coroutineStarted = true;
+                            }
                         }
                     }
                 }
                 
+                if (coliders[i].gameObject.CompareTag("NPC"))
+                {
+                    coliders[i].gameObject.GetComponent<Animator>().CrossFadeInFixedTime("Idle", 0.25f);
+                    coliders[i].gameObject.GetComponent<NavMeshAgent>().velocity = new Vector3(0.0f, 0.0f, 0.0f);
+                    coliders[i].gameObject.transform.rotation = Quaternion.LookRotation(-transform.forward);
+                }
+
                 if (coliders[i].gameObject.layer == 6)
                     {
                         coliders[i].gameObject.SetActive(false);
@@ -134,5 +153,11 @@ public class MyCharacter : MonoBehaviour
                 }
             }
         }
+    }
+    IEnumerator IncreaseScore(float destroyTime)
+    {
+        yield return new WaitForSeconds(destroyTime + 1.42f);
+        ScoreManager.scoreCount += 1;
+        coroutineStarted = false;
     }
 }
