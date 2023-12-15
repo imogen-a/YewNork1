@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class LoadingScene : MonoBehaviour
 {
     public GameObject LoadingScreen;
+    public GameObject VideoBackground;
     public Scrollbar LoadingBarFill;
 
     public void LoadScene(int sceneId)
@@ -19,6 +20,7 @@ public class LoadingScene : MonoBehaviour
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneId);
 
         LoadingScreen.SetActive(true);
+        VideoBackground.SetActive(true);
         
 
         while (!operation.isDone)
