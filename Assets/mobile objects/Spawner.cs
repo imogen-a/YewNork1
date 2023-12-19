@@ -34,7 +34,7 @@ public class Spawner : MonoBehaviour
 
         else
         {
-            return;
+            gameObject.SetActive(false);
         }
     }
 }

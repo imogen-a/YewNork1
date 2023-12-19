@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b1c9d3f12b59a54429887abbd0ef6b44
+guid: 44b2da2743c6e6c4ea666e0611dac2ab
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -33,9 +33,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Rat w gloves|Rat w gloves|Rat w gloves|ArmatureAction
-      takeName: Rat w gloves|Rat w gloves|Rat w gloves|ArmatureAction
-      internalID: 992851210959899440
+      name: Rat w gloves|Rat w gloves|Rat w gloves|Rat w gloves|Rat w gloves|Rat
+        w glove
+      takeName: Rat w gloves|Rat w gloves|Rat w gloves|Rat w gloves|Rat w gloves|Rat
+        w glove
+      internalID: -4018460512994900304
       firstFrame: 0
       lastFrame: 239
       wrapMode: 0
@@ -64,7 +66,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.1
+    globalScale: 0.2
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 0
@@ -117,10 +119,10 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.1
+    globalScale: 0.002
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1

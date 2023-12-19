@@ -64,13 +64,11 @@ public class countDown2 : MonoBehaviour
 */
     void OpenPanelWin()
     {
-        Time.timeScale = 0f;
         panel_win.SetActive(true);
     }
 
     void OpenPanelLose()
     {
-        Time.timeScale = 0f;
         panel_lose.SetActive(true);
     }
 }

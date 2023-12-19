@@ -102,35 +102,6 @@ public class MyCharacter : MonoBehaviour
                 if (Physics.ComputePenetration(coliders[i], coliders[i].transform.position, coliders[i].transform.rotation, _Collider,
                _Collider.transform.position, _Collider.transform.rotation, out hitDirection, out hitDistance))
                 {
-                    if (coliders[i].gameObject.layer == 3)
-                    {
-                        if ((GameObject.Find("PlayerSprayBottle")).activeInHierarchy)
-                        {
-                            if (coroutineStarted == false)
-                            {
-                                GetComponent<Animator>().CrossFadeInFixedTime("Spray", 0.25f);
-                                Destroy(coliders[i].gameObject, destroyTime + 1.42f);
-                                StartCoroutine(IncreaseScore(destroyTime));
-                                coroutineStarted = true;
-                            }
-                        }
-                    }
-                }
-                
-                if (coliders[i].gameObject.CompareTag("NPC"))
-                {
-                    coliders[i].gameObject.GetComponent<Animator>().CrossFadeInFixedTime("Idle", 0.25f);
-                    coliders[i].gameObject.GetComponent<NavMeshAgent>().velocity = new Vector3(0.0f, 0.0f, 0.0f);
-                    coliders[i].gameObject.transform.rotation = Quaternion.LookRotation(-transform.forward);
-                }
-
-                if (coliders[i].gameObject.layer == 6)
-                    {
-                        coliders[i].gameObject.SetActive(false);
-                    }
-
-                else
-                {
                     //make the hit direction relative to the character
                     hitDirection *= -1.0f;
                     //we only want to depenatrate in the vertically direction if its a floor
@@ -149,6 +120,29 @@ public class MyCharacter : MonoBehaviour
                     {
                         //its not the floor, depenatrate in the natural direction
                         transform.position += hitDirection * hitDistance;
+                    }
+
+                    if (coliders[i].gameObject.layer == 3 && GameObject.Find("PlayerSprayBottle").activeInHierarchy && !VictoryDefeat.winLoseScreenActive)
+                    {
+                        if (coroutineStarted == false)
+                        {
+                            GetComponent<Animator>().CrossFadeInFixedTime("Spray", 0.25f);
+                            Destroy(coliders[i].gameObject, destroyTime + 1.42f);
+                            StartCoroutine(IncreaseScore(destroyTime));
+                            coroutineStarted = true;
+                        }
+                    }
+
+                    if (coliders[i].gameObject.CompareTag("NPC"))
+                    {
+                        coliders[i].gameObject.GetComponent<Animator>().CrossFadeInFixedTime("Idle", 0.25f);
+                        coliders[i].gameObject.GetComponent<NavMeshAgent>().velocity = new Vector3(0.0f, 0.0f, 0.0f);
+                        coliders[i].gameObject.transform.rotation = Quaternion.LookRotation(-transform.forward);
+                    }
+
+                    if (coliders[i].gameObject.layer == 6)
+                    {
+                        coliders[i].gameObject.SetActive(false);
                     }
                 }
             }
