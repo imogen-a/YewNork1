@@ -10,7 +10,7 @@ public class RestartLevel : MonoBehaviour
     {
       ScoreManager.scoreCount = 0;
       Time.timeScale = 1f;
-      SceneManager.LoadScene(1);  
+      SceneManager.LoadScene(2);  
     }
 
     public void RestartButton2()
