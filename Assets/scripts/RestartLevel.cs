@@ -17,12 +17,22 @@ public class RestartLevel : MonoBehaviour
     {
       ScoreManager.scoreCount = 0;
       Time.timeScale = 1f;
-      SceneManager.LoadScene(2);
+      SceneManager.LoadScene(4);
     }
+
+    public void RestartButton3()
+    {
+      ScoreManager.scoreCount = 0;
+      Time.timeScale = 1f;
+      SceneManager.LoadScene(6);
+    }
+    
+
 
     public void BackToHome()
     {
       SceneManager.LoadScene(0);
     }
+
 }
 
