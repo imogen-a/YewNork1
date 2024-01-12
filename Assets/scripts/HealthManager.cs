@@ -5,20 +5,20 @@ using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
 {
-    public Text scoreText;
-    public static int scoreCount;
+    public Text healthText;
+    public static int healthCount;
     public Slider slider;
     // Start is called before the first frame update
     void Start()
     {
-        slider.maxValue = 10f;
-        slider.value = scoreCount;
+        slider.maxValue = 100f;
+        slider.value = healthCount;
     }
 
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = Mathf.Round(scoreCount) + "/10";
-        slider.value = scoreCount;
+        healthText.text = Mathf.Round(healthCount) + "/100";
+        slider.value = healthCount;
     }
 }
