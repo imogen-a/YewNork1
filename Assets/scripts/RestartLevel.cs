@@ -5,12 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class RestartLevel : MonoBehaviour
 {
+
     // Start is called before the first frame update
     public void RestartButton()
     {
       ScoreManager.scoreCount = 0;
       Time.timeScale = 1f;
-      SceneManager.LoadScene(2);  
+      SceneManager.LoadScene(2);
     }
 
     public void RestartButton2()

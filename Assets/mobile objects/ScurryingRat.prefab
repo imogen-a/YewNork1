@@ -1249,6 +1249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed3bbd0f5d7f784d9d3b0af9acb6cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  runDistanceRange: 3
   movementRange: 3
 --- !u!195 &7756200821967887218
 NavMeshAgent:
@@ -1261,7 +1262,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 1.5
-  m_Acceleration: 3
+  m_Acceleration: 30
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 1.5
