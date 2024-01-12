@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class VictoryDefeat : MonoBehaviour
 {
@@ -8,6 +10,12 @@ public class VictoryDefeat : MonoBehaviour
     [SerializeField] GameObject winScreen;
     [SerializeField] GameObject loseScreen;
     public static bool winLoseScreenActive = false;
+
+    // Start is called before the first frame update
+    private void Start()
+    {
+        winLoseScreenActive = false;
+    }
 
     // Update is called once per frame
     void Update()

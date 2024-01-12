@@ -11,7 +11,7 @@ public class RatMovement : MonoBehaviour
 {
     private NavMeshAgent _agent;
     private GameObject Player;
-    private float runDistanceRange = 3.0f;
+    public float runDistanceRange = 3.0f;
 
     public float movementRange;
 
