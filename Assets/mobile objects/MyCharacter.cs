@@ -15,6 +15,7 @@ public class MyCharacter : MonoBehaviour
 
     public static float destroyTime = 0.25f;
     public static bool coroutineStarted = false;
+    public FootstepController footstepController;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,8 @@ public class MyCharacter : MonoBehaviour
         {
             _simplePath.Add(_path.corners[i]);
         }
+
+        footstepController.StartWalking();
     }
 
     // Update is called once per frame
@@ -62,6 +65,10 @@ public class MyCharacter : MonoBehaviour
         if (_simplePath.Count > 0)
         {
             MoveDirection = _simplePath[0] - transform.position;
+        }
+        if (_simplePath.Count == 0)
+        {
+            footstepController.StopWalking();
         }
 
         //if the destination is a reasonable distance away, update the characters rotation to point in this direction
