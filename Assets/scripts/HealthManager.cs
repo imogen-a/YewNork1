@@ -12,6 +12,7 @@ public class HealthManager : MonoBehaviour
     void Start()
     {
         slider.maxValue = 100f;
+        healthCount = (int)100f;
         slider.value = healthCount;
     }
 

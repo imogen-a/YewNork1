@@ -216,7 +216,7 @@ public class MyCharacter : MonoBehaviour
     IEnumerator DecreaseHealth()
     {
         yield return new WaitForSeconds(0.25f);
-        ScoreManager2.scoreCount -= 2;
+        HealthManager.healthCount -= 2;
         healthCoroutineStarted = false;
     }
 }

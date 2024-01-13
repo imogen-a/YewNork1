@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 
-public class HealhBar : MonoBehaviour
+public class HealthBar : MonoBehaviour
 {
     public Slider slider; 
 
