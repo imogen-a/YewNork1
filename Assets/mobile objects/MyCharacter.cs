@@ -158,7 +158,14 @@ public class MyCharacter : MonoBehaviour
     IEnumerator IncreaseScore(float destroyTime)
     {
         yield return new WaitForSeconds(destroyTime + 1.42f);
-        ScoreManager.scoreCount += 1;
+        if (UnityEngine.SceneManagement.SceneManager.GetSceneByBuildIndex(2).isLoaded)
+        {
+            ScoreManager.scoreCount += 1;
+        }
+        if (UnityEngine.SceneManagement.SceneManager.GetSceneByBuildIndex(4).isLoaded)
+        {
+            ScoreManager2.scoreCount += 1;
+        }
         coroutineStarted = false;
     }
 }
