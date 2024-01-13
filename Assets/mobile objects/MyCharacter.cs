@@ -14,8 +14,10 @@ public class MyCharacter : MonoBehaviour
     public CapsuleCollider _Collider;
 
     public static float destroyTime = 0.25f;
-    public static bool coroutineStarted = false;
+    public static bool scoreCoroutineStarted = false;
+    public static bool healthCoroutineStarted = false;
     public FootstepController footstepController;
+    public SprayController sprayController;
     public GameObject PlayerSprayBottle;
     public static bool SprayBottleActiveBool = false;
 
@@ -134,12 +136,13 @@ public class MyCharacter : MonoBehaviour
 
                     if (coliders[i].gameObject.layer == 3 && PlayerSprayBottle.activeInHierarchy && !VictoryDefeat.winLoseScreenActive)
                     {
-                        if (coroutineStarted == false)
+                        if (scoreCoroutineStarted == false)
                         {
                             GetComponent<Animator>().CrossFadeInFixedTime("Spray", 0.25f);
+                            sprayController.StartSpraying();
                             Destroy(coliders[i].gameObject, destroyTime + 1.42f);
                             StartCoroutine(IncreaseScore(destroyTime));
-                            coroutineStarted = true;
+                            scoreCoroutineStarted = true;
                         }
                     }
 
@@ -155,6 +158,15 @@ public class MyCharacter : MonoBehaviour
                         Destroy(coliders[i].gameObject);
                         PlayerSprayBottle.SetActive(true);
                         SprayBottleActive();
+                    }
+
+                    if (coliders[i].gameObject.CompareTag("ChasingRat") && !VictoryDefeat.winLoseScreenActive)
+                    {
+                        if (healthCoroutineStarted == false)
+                        {
+                            StartCoroutine(DecreaseHealth());
+                            healthCoroutineStarted = true;
+                        }
                     }
                 }
             }
@@ -194,6 +206,14 @@ public class MyCharacter : MonoBehaviour
         {
             ScoreManager2.scoreCount += 1;
         }
-        coroutineStarted = false;
+        scoreCoroutineStarted = false;
+        sprayController.StopSpraying();
+    }
+
+    IEnumerator DecreaseHealth()
+    {
+        yield return new WaitForSeconds(0.25f);
+        ScoreManager2.scoreCount -= 2;
+        healthCoroutineStarted = false;
     }
 }

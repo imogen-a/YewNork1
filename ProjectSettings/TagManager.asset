@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - NPC
+  - ChasingRat
   layers:
   - Default
   - TransparentFX
