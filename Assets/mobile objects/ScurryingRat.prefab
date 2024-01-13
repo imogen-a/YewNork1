@@ -1249,8 +1249,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed3bbd0f5d7f784d9d3b0af9acb6cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runDistanceRange: 3
-  movementRange: 3
+  runDistanceRange: 4.5
+  movementRange: 4.5
 --- !u!195 &7756200821967887218
 NavMeshAgent:
   m_ObjectHideFlags: 0
