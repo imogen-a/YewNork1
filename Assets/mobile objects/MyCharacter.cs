@@ -16,10 +16,13 @@ public class MyCharacter : MonoBehaviour
     public static float destroyTime = 0.25f;
     public static bool coroutineStarted = false;
     public FootstepController footstepController;
+    public GameObject PlayerSprayBottle;
+    public static bool SprayBottleActiveBool = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        SprayBottleActiveBool = false;
         //when we start, set the destination to whatever the current position is
         _Destination = transform.position;
         _path = new UnityEngine.AI.NavMeshPath();
@@ -42,7 +45,7 @@ public class MyCharacter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        SprayBottleActiveBool = SprayBottleActive();
         //when updating, work out the direction we need to move in
 
         Vector3 MoveDirection = Vector3.zero;
@@ -129,7 +132,7 @@ public class MyCharacter : MonoBehaviour
                         transform.position += hitDirection * hitDistance;
                     }
 
-                    if (coliders[i].gameObject.layer == 3 && GameObject.Find("PlayerSprayBottle").activeInHierarchy && !VictoryDefeat.winLoseScreenActive)
+                    if (coliders[i].gameObject.layer == 3 && PlayerSprayBottle.activeInHierarchy && !VictoryDefeat.winLoseScreenActive)
                     {
                         if (coroutineStarted == false)
                         {
@@ -147,14 +150,39 @@ public class MyCharacter : MonoBehaviour
                         coliders[i].gameObject.transform.rotation = Quaternion.LookRotation(-transform.forward);
                     }
 
-                    if (coliders[i].gameObject.layer == 6)
+                    if (coliders[i].gameObject.layer == 6 && SprayBottleActiveBool == false)
                     {
-                        coliders[i].gameObject.SetActive(false);
+                        Destroy(coliders[i].gameObject);
+                        PlayerSprayBottle.SetActive(true);
+                        SprayBottleActive();
                     }
                 }
             }
         }
+
+        if (SprayBottleActiveBool == true)
+        {
+            if (ScoreManager.scoreCount == 1 || ScoreManager.scoreCount == 3)
+            {
+                PlayerSprayBottle.SetActive(false);
+                SprayBottleActive();
+            }
+        }
     }
+
+    bool SprayBottleActive()
+    {
+        if (PlayerSprayBottle.activeInHierarchy)
+        {
+            return true;
+        }
+
+        else
+        {
+            return false;
+        }
+    }
+
     IEnumerator IncreaseScore(float destroyTime)
     {
         yield return new WaitForSeconds(destroyTime + 1.42f);
