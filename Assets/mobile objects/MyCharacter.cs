@@ -18,6 +18,7 @@ public class MyCharacter : MonoBehaviour
     public static bool healthCoroutineStarted = false;
     public FootstepController footstepController;
     public SprayController sprayController;
+    public SqueakController squeakController;
     public GameObject PlayerSprayBottle;
     public static bool SprayBottleActiveBool = false;
 
@@ -140,6 +141,7 @@ public class MyCharacter : MonoBehaviour
                         {
                             GetComponent<Animator>().CrossFadeInFixedTime("Spray", 0.25f);
                             sprayController.StartSpraying();
+                            squeakController.StartSqueaking();
                             Destroy(coliders[i].gameObject, destroyTime + 1.42f);
                             StartCoroutine(IncreaseScore(destroyTime));
                             scoreCoroutineStarted = true;
@@ -208,6 +210,7 @@ public class MyCharacter : MonoBehaviour
         }
         scoreCoroutineStarted = false;
         sprayController.StopSpraying();
+        squeakController.StopSqueaking();
     }
 
     IEnumerator DecreaseHealth()
