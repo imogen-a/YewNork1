@@ -24,7 +24,7 @@ public class count_lvl3 : MonoBehaviour
 
     IEnumerator TimeIEn()
     {
-        while (currentTime >= 0 && HealthManager.healthCount > 0f)
+        while (currentTime > 0 && HealthManager.healthCount > 0f)
         //while the time left is more than 0,
         {
             timeImage.fillAmount = Mathf.InverseLerp(0, duration, currentTime);
@@ -34,7 +34,7 @@ public class count_lvl3 : MonoBehaviour
             currentTime --;
             //subtract 1 from current time
         }
-        if (currentTime >= 0 && HealthManager.healthCount == 0f)
+        if (currentTime == 0 && HealthManager.healthCount == 0f)
         {
             OpenPanelLose();
         }
