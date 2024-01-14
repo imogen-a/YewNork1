@@ -267,7 +267,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.391
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -319,9 +319,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 041282184d3bbbd408b3110caffd0e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yewNorkSounds: []
-  minTimeBetweenYewNorks: 1.5
-  maxTimeBetweenYewNorks: 1.5
+  yewNorkSounds:
+  - {fileID: 8300000, guid: 1b4a261534c51544b9916b542c70f923, type: 3}
+  - {fileID: 8300000, guid: 63b9144bbcd762048aedaa9a2b17e3bc, type: 3}
+  - {fileID: 8300000, guid: 6a66b321723442444b55acd8450789c3, type: 3}
+  - {fileID: 8300000, guid: e37af8a10ea1aad4eada9fb4951b84c9, type: 3}
+  minTimeBetweenYewNorks: 5
+  maxTimeBetweenYewNorks: 9
 --- !u!1 &1017245279337560994
 GameObject:
   m_ObjectHideFlags: 0
