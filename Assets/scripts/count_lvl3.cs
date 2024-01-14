@@ -34,15 +34,14 @@ public class count_lvl3 : MonoBehaviour
             currentTime --;
             //subtract 1 from current time
         }
-        if (currentTime >= 0 && HealthManager.healthCount > 0f)
-        {
-            OpenPanelWin();
-        }
-        else
+        if (currentTime >= 0 && HealthManager.healthCount <= 0f)
         {
             OpenPanelLose();
             HealthManager.healthCount = 0;
-
+        }
+        else
+        {
+            OpenPanelWin();
         }
     }
     /*

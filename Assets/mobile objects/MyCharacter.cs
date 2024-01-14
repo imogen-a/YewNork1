@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using Unity.VisualScripting;
+using UnityEditor.PackageManager.UI;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.AI;
@@ -21,11 +23,13 @@ public class MyCharacter : MonoBehaviour
     public SqueakController squeakController;
     public GameObject PlayerSprayBottle;
     public static bool SprayBottleActiveBool = false;
+    public static bool SprayBottleFirstDisableBool = false;
 
     // Start is called before the first frame update
     void Start()
     {
         SprayBottleActiveBool = false;
+        SprayBottleFirstDisableBool = false;
         //when we start, set the destination to whatever the current position is
         _Destination = transform.position;
         _path = new UnityEngine.AI.NavMeshPath();
@@ -48,7 +52,15 @@ public class MyCharacter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SprayBottleActiveBool = SprayBottleActive();
+        if (!NavMesh.SamplePosition(transform.position, out NavMeshHit hit, 0.1f, 1 << NavMesh.GetAreaFromName("Walkable")))
+        {
+            NavMeshHit correctedNavHit;
+            if (NavMesh.SamplePosition(transform.position, out correctedNavHit, 3.0f, 1 << NavMesh.GetAreaFromName("Walkable")))
+            {
+                transform.position = correctedNavHit.position;
+            }
+        }
+
         //when updating, work out the direction we need to move in
 
         Vector3 MoveDirection = Vector3.zero;
@@ -72,7 +84,7 @@ public class MyCharacter : MonoBehaviour
         {
             MoveDirection = _simplePath[0] - transform.position;
         }
-        if (_simplePath.Count == 0)
+        if (_simplePath.Count == 0 || VictoryDefeat.winLoseScreenActive == true)
         {
             footstepController.StopWalking();
         }
@@ -135,11 +147,12 @@ public class MyCharacter : MonoBehaviour
                         transform.position += hitDirection * hitDistance;
                     }
 
-                    if (coliders[i].gameObject.layer == 3 && PlayerSprayBottle.activeInHierarchy && !VictoryDefeat.winLoseScreenActive)
+                    if (coliders[i].gameObject.layer == 3 && PlayerSprayBottle.activeInHierarchy && !VictoryDefeat.winLoseScreenActive && (ScoreManager.scoreCount < 10 || ScoreManager2.scoreCount < 15))
                     {
                         if (scoreCoroutineStarted == false)
                         {
                             GetComponent<Animator>().CrossFadeInFixedTime("Spray", 0.25f);
+                            footstepController.StopWalking();
                             sprayController.StartSpraying();
                             squeakController.StartSqueaking();
                             Destroy(coliders[i].gameObject, destroyTime + 1.42f);
@@ -155,14 +168,14 @@ public class MyCharacter : MonoBehaviour
                         coliders[i].gameObject.transform.rotation = Quaternion.LookRotation(-transform.forward);
                     }
 
-                    if (coliders[i].gameObject.layer == 6 && SprayBottleActiveBool == false)
+                    if (coliders[i].gameObject.layer == 6 && !SprayBottleActiveBool)
                     {
                         Destroy(coliders[i].gameObject);
-                        PlayerSprayBottle.SetActive(true);
-                        SprayBottleActive();
+                        PickUpSprayBottle();
+                        break;
                     }
 
-                    if (coliders[i].gameObject.CompareTag("ChasingRat") && !VictoryDefeat.winLoseScreenActive)
+                    if (coliders[i].gameObject.CompareTag("ChasingRat") && !VictoryDefeat.winLoseScreenActive && HealthManager.healthCount > 0)
                     {
                         if (healthCoroutineStarted == false)
                         {
@@ -174,27 +187,32 @@ public class MyCharacter : MonoBehaviour
             }
         }
 
-        if (SprayBottleActiveBool == true)
+        if (SprayBottleActiveBool && !SprayBottleFirstDisableBool)
         {
-            if (ScoreManager.scoreCount == 1 || ScoreManager.scoreCount == 3)
+            if (ScoreManager2.scoreCount == 5)
             {
                 PlayerSprayBottle.SetActive(false);
-                SprayBottleActive();
+                SprayBottleActiveBool = false;
+                SprayBottleFirstDisableBool = true;
             }
+        }
+
+        {
+            if (SprayBottleActiveBool && SprayBottleFirstDisableBool)
+
+                if (ScoreManager2.scoreCount == 10)
+                {
+                    PlayerSprayBottle.SetActive(false);
+                    SprayBottleActiveBool = false;
+                    SprayBottleFirstDisableBool = false;
+                }
         }
     }
 
-    bool SprayBottleActive()
+    void PickUpSprayBottle()
     {
-        if (PlayerSprayBottle.activeInHierarchy)
-        {
-            return true;
-        }
-
-        else
-        {
-            return false;
-        }
+        PlayerSprayBottle.SetActive(true);
+        SprayBottleActiveBool = true;
     }
 
     IEnumerator IncreaseScore(float destroyTime)
@@ -215,8 +233,8 @@ public class MyCharacter : MonoBehaviour
 
     IEnumerator DecreaseHealth()
     {
-        yield return new WaitForSeconds(0.25f);
-        HealthManager.healthCount -= 2;
+        yield return new WaitForSeconds(0.3f);
+        HealthManager.healthCount -= 1;
         healthCoroutineStarted = false;
     }
 }

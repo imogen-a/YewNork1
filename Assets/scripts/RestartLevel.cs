@@ -16,14 +16,14 @@ public class RestartLevel : MonoBehaviour
 
     public void RestartButton2()
     {
-      ScoreManager.scoreCount = 0;
+      ScoreManager2.scoreCount = 0;
       Time.timeScale = 1f;
       SceneManager.LoadScene(4);
     }
 
     public void RestartButton3()
     {
-      ScoreManager.scoreCount = 0;
+      HealthManager.healthCount = 100;
       Time.timeScale = 1f;
       SceneManager.LoadScene(6);
     }

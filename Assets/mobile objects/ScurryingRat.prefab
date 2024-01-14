@@ -1194,8 +1194,8 @@ Transform:
   m_GameObject: {fileID: 7449770017709631000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -72.71, y: 0.277, z: 14.57}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1196237461637540924}
   - {fileID: 7760513093517285804}
@@ -1235,7 +1235,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
+  m_Size: {x: 1.6, y: 1.6, z: 1.6}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7756200821967887221
 MonoBehaviour:
@@ -1249,8 +1249,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed3bbd0f5d7f784d9d3b0af9acb6cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runDistanceRange: 3
-  movementRange: 3
+  runDistanceRange: 3.75
+  movementRange: 3.75
 --- !u!195 &7756200821967887218
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1261,7 +1261,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 1.5
+  m_Speed: 3
   m_Acceleration: 30
   avoidancePriority: 50
   m_AngularSpeed: 120

@@ -34,7 +34,7 @@ public class countDownLevel2 : MonoBehaviour
             currentTime --;
             //subtract 1 from current time
         }
-        if (currentTime >= 0 && ScoreManager2.scoreCount == 15f)
+        if (currentTime >= 0 && ScoreManager2.scoreCount >= 15f)
         {
             OpenPanelWin();
             ScoreManager2.scoreCount = 15;
