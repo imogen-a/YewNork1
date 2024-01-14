@@ -5,10 +5,10 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     public Transform player;
-    private float initialDistance = -3.0f;
+    private float initialDistance = -4.5f;
     private float currentDistance;
-    private float x = 0.0f;
-    private float y = 30.0f;
+    private float x = 60.0f;
+    private float y = 45.0f;
     private bool endCameraPositionSet;
 
     // Start is called before the first frame update
@@ -46,7 +46,7 @@ public class CameraFollow : MonoBehaviour
                 }
 
                 currentDistance += Input.GetAxis("Mouse ScrollWheel") * 3.0f;
-                currentDistance = Mathf.Clamp(currentDistance, -4.5f, -1.5f);
+                currentDistance = Mathf.Clamp(currentDistance, -9.0f, -1.5f);
 
                 Quaternion cameraRotation = Quaternion.Euler(y, x, 0);
                 Vector3 cameraPosition = (player.position + new Vector3(0.0f, 2.0f)) + cameraRotation * Vector3.forward * currentDistance;
@@ -56,5 +56,4 @@ public class CameraFollow : MonoBehaviour
             }
         }
     }
-
 }
