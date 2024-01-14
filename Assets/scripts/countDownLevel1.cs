@@ -37,6 +37,7 @@ public class countDownLevel1 : MonoBehaviour
         if (currentTime >= 0 && ScoreManager.scoreCount == 10f)
         {
             OpenPanelWin();
+            ScoreManager.scoreCount = 10;
         }
         else
         {

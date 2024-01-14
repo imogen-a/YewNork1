@@ -6,13 +6,12 @@ using UnityEngine.UI;
 public class HealthManager : MonoBehaviour
 {
     public Text healthText;
-    public static int healthCount;
+    public static int healthCount = 100;
     public Slider slider;
     // Start is called before the first frame update
     void Start()
     {
         slider.maxValue = 100f;
-        healthCount = (int)100f;
         slider.value = healthCount;
     }
 
