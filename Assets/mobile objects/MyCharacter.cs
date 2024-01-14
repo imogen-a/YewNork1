@@ -21,6 +21,7 @@ public class MyCharacter : MonoBehaviour
     public FootstepController footstepController;
     public SprayController sprayController;
     public SqueakController squeakController;
+    public AttackController attackController;
     public GameObject PlayerSprayBottle;
     public static bool SprayBottleActiveBool = false;
     public static bool SprayBottleFirstDisableBool = false;
@@ -84,7 +85,7 @@ public class MyCharacter : MonoBehaviour
         {
             MoveDirection = _simplePath[0] - transform.position;
         }
-        if (_simplePath.Count == 0 || VictoryDefeat.winLoseScreenActive == true)
+        if (_simplePath.Count == 0 || VictoryDefeat.winLoseScreenActive == true || gameObject.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.ToString().Contains("Spray"))
         {
             footstepController.StopWalking();
         }
@@ -152,7 +153,6 @@ public class MyCharacter : MonoBehaviour
                         if (scoreCoroutineStarted == false)
                         {
                             GetComponent<Animator>().CrossFadeInFixedTime("Spray", 0.25f);
-                            footstepController.StopWalking();
                             sprayController.StartSpraying();
                             squeakController.StartSqueaking();
                             Destroy(coliders[i].gameObject, destroyTime + 1.42f);
@@ -179,6 +179,7 @@ public class MyCharacter : MonoBehaviour
                     {
                         if (healthCoroutineStarted == false)
                         {
+                            attackController.StartAttacking();
                             StartCoroutine(DecreaseHealth());
                             healthCoroutineStarted = true;
                         }
@@ -236,5 +237,6 @@ public class MyCharacter : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         HealthManager.healthCount -= 1;
         healthCoroutineStarted = false;
+        attackController.StopAttacking();
     }
 }
