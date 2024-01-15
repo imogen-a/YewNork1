@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
 using Unity.VisualScripting;
-using UnityEditor.PackageManager.UI;
-using UnityEditor.ShaderGraph.Internal;
+using UnityEngine.UI;
+//using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -222,13 +222,16 @@ public class MyCharacter : MonoBehaviour
         if (UnityEngine.SceneManagement.SceneManager.GetSceneByBuildIndex(2).isLoaded)
         {
             ScoreManager.scoreCount += 1;
-            FreeScoreManager.scoreCount += 1;
         }
         if (UnityEngine.SceneManagement.SceneManager.GetSceneByBuildIndex(4).isLoaded)
         {
             ScoreManager2.scoreCount += 1;
+        }
+        if (UnityEngine.SceneManagement.SceneManager.GetSceneByBuildIndex(8).isLoaded)
+        {
             FreeScoreManager.scoreCount += 1;
         }
+
         scoreCoroutineStarted = false;
         sprayController.StopSpraying();
         squeakController.StopSqueaking();
