@@ -3,7 +3,7 @@ using UnityEngine;
 public class FootstepController : MonoBehaviour
 {
     public AudioClip[] footstepSounds; // Array to hold footstep sound clips
-    public float minTimeBetweenFootsteps = 0.3f; // Minimum time between footstep sounds
+    public float minTimeBetweenFootsteps = 0.15f; // Minimum time between footstep sounds
     public float maxTimeBetweenFootsteps = 0.6f; // Maximum time between footstep sounds
 
     private AudioSource audioSource; // Reference to the Audio Source component

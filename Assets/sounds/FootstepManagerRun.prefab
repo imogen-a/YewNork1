@@ -152,5 +152,5 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 82354d1fee336984994fbdcc8154c89c, type: 3}
   - {fileID: 8300000, guid: 068414160a0ccf34ca0c11b55d43ffc8, type: 3}
   - {fileID: 8300000, guid: 02d4b2dff380d194fab91c0864b0c386, type: 3}
-  minTimeBetweenFootsteps: 0.3
+  minTimeBetweenFootsteps: 0.15
   maxTimeBetweenFootsteps: 0.6
