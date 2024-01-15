@@ -3,8 +3,8 @@ using UnityEngine;
 public class SqueakController : MonoBehaviour
 {
     public AudioClip[] squeakSounds; // Array to hold footstep sound clips
-    public float minTimeBetweenSqueaks = 0.15f; // Minimum time between footstep sounds
-    public float maxTimeBetweenSqueaks = 0.3f; // Maximum time between footstep sounds
+    public float minTimeBetweenSqueaks = 1.8f; // Minimum time between footstep sounds
+    public float maxTimeBetweenSqueaks = 2.1f; // Maximum time between footstep sounds
 
     private AudioSource audioSource; // Reference to the Audio Source component
     private bool isSqueaking = false; // Flag to track if the player is walking

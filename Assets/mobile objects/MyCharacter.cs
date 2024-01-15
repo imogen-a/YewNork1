@@ -26,6 +26,14 @@ public class MyCharacter : MonoBehaviour
     public static bool SprayBottleActiveBool = false;
     public static bool SprayBottleFirstDisableBool = false;
 
+    private AudioSource audioSource;
+    public AudioClip collectionSound;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>(); // Get the Audio Source component
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -188,6 +196,7 @@ public class MyCharacter : MonoBehaviour
                     if (coliders[i].gameObject.layer == 7 && !VictoryDefeat.winLoseScreenActive && HealthManager.healthCount < 100)
                     {
                         Destroy(coliders[i].gameObject);
+                        audioSource.PlayOneShot(collectionSound);
                         if (HealthManager.healthCount > 90)
                         {
                             HealthManager.healthCount = 100;
@@ -227,6 +236,7 @@ public class MyCharacter : MonoBehaviour
     {
         PlayerSprayBottle.SetActive(true);
         SprayBottleActiveBool = true;
+        audioSource.PlayOneShot(collectionSound);
     }
 
     IEnumerator IncreaseScore(float destroyTime)
