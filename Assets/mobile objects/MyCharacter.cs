@@ -222,10 +222,12 @@ public class MyCharacter : MonoBehaviour
         if (UnityEngine.SceneManagement.SceneManager.GetSceneByBuildIndex(2).isLoaded)
         {
             ScoreManager.scoreCount += 1;
+            FreeScoreManager.scoreCount += 1;
         }
         if (UnityEngine.SceneManagement.SceneManager.GetSceneByBuildIndex(4).isLoaded)
         {
             ScoreManager2.scoreCount += 1;
+            FreeScoreManager.scoreCount += 1;
         }
         scoreCoroutineStarted = false;
         sprayController.StopSpraying();
