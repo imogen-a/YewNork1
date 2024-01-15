@@ -324,8 +324,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 63b9144bbcd762048aedaa9a2b17e3bc, type: 3}
   - {fileID: 8300000, guid: 6a66b321723442444b55acd8450789c3, type: 3}
   - {fileID: 8300000, guid: e37af8a10ea1aad4eada9fb4951b84c9, type: 3}
-  minTimeBetweenYewNorks: 5
-  maxTimeBetweenYewNorks: 9
+  minTimeBetweenYewNorks: 1.5
+  maxTimeBetweenYewNorks: 1.5
 --- !u!1 &1017245279337560994
 GameObject:
   m_ObjectHideFlags: 0
