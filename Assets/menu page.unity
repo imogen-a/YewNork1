@@ -966,7 +966,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Start
+  m_text: Freeplay MOde
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6379e2fbef36a497289253f17f18c59f, type: 2}
   m_sharedMaterial: {fileID: 4401000015938009029, guid: 6379e2fbef36a497289253f17f18c59f, type: 2}
@@ -993,8 +993,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 135
-  m_fontSizeBase: 135
+  m_fontSize: 128.76
+  m_fontSizeBase: 128.76
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1208,7 +1208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 838599103}
   m_Layer: 5
-  m_Name: start text
+  m_Name: freeplay text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2144,7 +2144,7 @@ GameObject:
   - component: {fileID: 1911201440}
   - component: {fileID: 1911201439}
   m_Layer: 5
-  m_Name: start button (1)
+  m_Name: Freeplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
