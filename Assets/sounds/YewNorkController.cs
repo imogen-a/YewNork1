@@ -15,7 +15,6 @@ public class YewNorkController : MonoBehaviour
     {
 
         audioSource = GetComponent<AudioSource>(); // Get the Audio Source component
-        yewNorkSound = yewNorkSounds[Random.Range(0, yewNorkSounds.Length)];
     }
 
     private void Update()
@@ -27,6 +26,7 @@ public class YewNorkController : MonoBehaviour
             if (Time.time - timeSinceLastYewNork >= Random.Range(minTimeBetweenYewNorks, maxTimeBetweenYewNorks))
             {
                 // Play a random footstep sound from the array
+                yewNorkSound = yewNorkSounds[Random.Range(0, yewNorkSounds.Length)];
                 audioSource.PlayOneShot(yewNorkSound);
 
                 timeSinceLastYewNork = Time.time; // Update the time since the last footstep sound
