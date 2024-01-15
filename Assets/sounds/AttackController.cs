@@ -3,8 +3,8 @@ using UnityEngine;
 public class AttackController : MonoBehaviour
 {
     public AudioClip[] attackSounds; // Array to hold footstep sound clips
-    public float minTimeBetweenAttacks = 0.3f; // Minimum time between footstep sounds
-    public float maxTimeBetweenAttacks = 0.3f; // Maximum time between footstep sounds
+    public float minTimeBetweenAttacks = 0.33f; // Minimum time between footstep sounds
+    public float maxTimeBetweenAttacks = 0.33f; // Maximum time between footstep sounds
 
     private AudioSource audioSource; // Reference to the Audio Source component
     private bool isAttacking = false; // Flag to track if the player is walking

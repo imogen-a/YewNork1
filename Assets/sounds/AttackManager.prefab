@@ -45,7 +45,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.791
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -141,6 +141,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e7eeb0e754ff049a2c9e2cb1221ad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSounds: []
-  minTimeBetweenAttacks: 0.3
-  maxTimeBetweenAttacks: 0.3
+  attackSounds:
+  - {fileID: 8300000, guid: 0f69041d2d15741499be0074ef440da7, type: 3}
+  - {fileID: 8300000, guid: 365d3e67f80a7e14ba3dc6c8404d3734, type: 3}
+  - {fileID: 8300000, guid: 9c865a07392387549b6de64691afb702, type: 3}
+  - {fileID: 8300000, guid: da86b4c66d926ae45b8777c90f1e5e60, type: 3}
+  - {fileID: 8300000, guid: 289db031c418c3f4f9bf4007f07fe2c7, type: 3}
+  - {fileID: 8300000, guid: d36c8eb9706bc59419805a6d64eebeac, type: 3}
+  - {fileID: 8300000, guid: 6be3149e5c0c6834d8b0d89c146052ce, type: 3}
+  - {fileID: 8300000, guid: 57d6860d6aed3104dbd6a5f705c4f5c6, type: 3}
+  minTimeBetweenAttacks: 0.33
+  maxTimeBetweenAttacks: 0.33
