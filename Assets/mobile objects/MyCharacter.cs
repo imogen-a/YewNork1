@@ -184,6 +184,19 @@ public class MyCharacter : MonoBehaviour
                             healthCoroutineStarted = true;
                         }
                     }
+
+                    if (coliders[i].gameObject.layer == 7 && !VictoryDefeat.winLoseScreenActive && HealthManager.healthCount < 100)
+                    {
+                        Destroy(coliders[i].gameObject);
+                        if (HealthManager.healthCount > 75)
+                        {
+                            HealthManager.healthCount = 100;
+                        }
+                        else
+                        {
+                            HealthManager.healthCount += 25;
+                        }
+                    }
                 }
             }
         }

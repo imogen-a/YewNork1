@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollectableSprayBottle : MonoBehaviour
+public class SpinningObject : MonoBehaviour
 {
     public AnimationCurve movementCurve;
 
