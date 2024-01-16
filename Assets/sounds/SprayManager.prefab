@@ -147,5 +147,5 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 778c28439388d66459db22f5eb92fe77, type: 3}
   - {fileID: 8300000, guid: fc620c9840ace7740900fdfe75b4a6a9, type: 3}
   - {fileID: 8300000, guid: 18fbcfb133f3d094386f784804da9c2d, type: 3}
-  minTimeBetweenSprays: 0.15
-  maxTimeBetweenSprays: 0.3
+  minTimeBetweenSprays: 1.8
+  maxTimeBetweenSprays: 2.1
