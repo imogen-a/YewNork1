@@ -12,6 +12,7 @@ public class RestartLevel : MonoBehaviour
       ScoreManager.scoreCount = 0;
       Time.timeScale = 1f;
       SceneManager.LoadScene(2);
+      MyCharacter.scoreCoroutineStarted = false;
     }
 
     public void RestartButton2()
@@ -19,11 +20,13 @@ public class RestartLevel : MonoBehaviour
       ScoreManager2.scoreCount = 0;
       Time.timeScale = 1f;
       SceneManager.LoadScene(4);
+      MyCharacter.scoreCoroutineStarted = false;
     }
 
     public void RestartButton3()
     {
       HealthManager.healthCount = 100;
+      MyCharacter.healthCoroutineStarted = false;
       Time.timeScale = 1f;
       SceneManager.LoadScene(6);
     }

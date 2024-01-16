@@ -46,6 +46,12 @@ public class pauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu Page");
+        ScoreManager.scoreCount = 0;
+        FreeScoreManager.scoreCount = 0;
+        ScoreManager2.scoreCount = 0;
+        HealthManager.healthCount = 100;
+        MyCharacter.healthCoroutineStarted = false;
+        MyCharacter.scoreCoroutineStarted = false;
     }
 
     public void QuitGame()
