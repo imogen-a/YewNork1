@@ -8,11 +8,14 @@ public class VideoScene : MonoBehaviour
 {
     [SerializeField]
 
-    public GameObject Continue;
+    //public GameObject Continue;
     VideoPlayer myVideoPlayer;
     // Start is called before the first frame update
+    //public static bool isContinueActive = false;
+
     void Start()
     {
+        //isContinueActive = false;
         myVideoPlayer.loopPointReached += DoSomethingWhenVideoDone;
         //Continue.SetActive(false);
     }
@@ -20,9 +23,11 @@ public class VideoScene : MonoBehaviour
     // Update is called once per frame
     void DoSomethingWhenVideoDone(VideoPlayer vp)
     {
-        Continue.SetActive(true);
-        Debug.Log("Yeahhh the cutscene is done");
+        //Continue.SetActive(true);
+        Debug.Log("Yeahhh the cutscene is done");//isContinueActive = true;
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    
+        
         
 
     }
