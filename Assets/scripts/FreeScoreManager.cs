@@ -11,7 +11,7 @@ public class FreeScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //slider.maxValue = 1000f;
+        //slider.maxValue = 400f;
         //slider.value = scoreCount;
     }
 

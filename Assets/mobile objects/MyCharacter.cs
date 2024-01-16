@@ -156,7 +156,7 @@ public class MyCharacter : MonoBehaviour
                         transform.position += hitDirection * hitDistance;
                     }
 
-                    if (coliders[i].gameObject.layer == 3 && PlayerSprayBottle.activeInHierarchy && !VictoryDefeat.winLoseScreenActive && (ScoreManager.scoreCount < 10 || ScoreManager2.scoreCount < 15))
+                    if (coliders[i].gameObject.layer == 3 && PlayerSprayBottle.activeInHierarchy && !VictoryDefeat.winLoseScreenActive && (ScoreManager.scoreCount < 10 || ScoreManager2.scoreCount < 15 || FreeScoreManager.scoreCount < 400))
                     {
                         if (scoreCoroutineStarted == false)
                         {
@@ -250,7 +250,7 @@ public class MyCharacter : MonoBehaviour
         {
             ScoreManager2.scoreCount += 1;
         }
-        if (UnityEngine.SceneManagement.SceneManager.GetSceneByBuildIndex(8).isLoaded)
+        if (UnityEngine.SceneManagement.SceneManager.GetSceneByBuildIndex(9).isLoaded)
         {
             FreeScoreManager.scoreCount += 1;
         }
