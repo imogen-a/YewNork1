@@ -3,8 +3,8 @@ using UnityEngine;
 public class SprayController : MonoBehaviour
 {
     public AudioClip[] spraySounds; // Array to hold footstep sound clips
-    public float minTimeBetweenSprays = 0.15f; // Minimum time between footstep sounds
-    public float maxTimeBetweenSprays = 0.3f; // Maximum time between footstep sounds
+    public float minTimeBetweenSprays = 1.8f; // Minimum time between footstep sounds
+    public float maxTimeBetweenSprays = 2.1f; // Maximum time between footstep sounds
 
     private AudioSource audioSource; // Reference to the Audio Source component
     private bool isSpraying = false; // Flag to track if the player is walking
